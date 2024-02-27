@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classes",
+  "info": {
+    "singularName": "class",
+    "pluralName": "classes",
+    "displayName": "Class",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "admissionYear": {
+      "type": "date",
+      "default": "2023-09-01"
+    },
+    "classLetter": {
+      "type": "string",
+      "maxLength": 1,
+      "minLength": 1,
+      "required": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student",
+      "mappedBy": "class"
+    },
+    "subjects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subject.subject",
+      "mappedBy": "class"
+    },
+    "journals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::journal.journal",
+      "mappedBy": "class"
+    },
+    "teachers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::teacher.teacher",
+      "mappedBy": "classes"
+    }
+  }
+}

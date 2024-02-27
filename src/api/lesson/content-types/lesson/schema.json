@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "singularName": "lesson",
+    "pluralName": "lessons",
+    "displayName": "Lesson",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lessonDate": {
+      "type": "date"
+    },
+    "journal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::journal.journal",
+      "inversedBy": "lessons"
+    },
+    "subject": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subject.subject",
+      "inversedBy": "lessons"
+    },
+    "marks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mark.mark",
+      "mappedBy": "lesson"
+    }
+  }
+}

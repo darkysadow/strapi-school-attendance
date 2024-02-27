@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subjects",
+  "info": {
+    "singularName": "subject",
+    "pluralName": "subjects",
+    "displayName": "Subject",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "marks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mark.mark",
+      "mappedBy": "subject"
+    },
+    "class": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::class.class",
+      "inversedBy": "subjects"
+    },
+    "journals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::journal.journal",
+      "mappedBy": "subject"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "subject"
+    },
+    "teachers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::teacher.teacher",
+      "inversedBy": "subjects"
+    }
+  }
+}
